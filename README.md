@@ -1,5 +1,5 @@
 Пример использования
-
+```php
 error_reporting(-1);
 
 $files = glob('*.class.php');
@@ -15,3 +15,4 @@ print_r($api->nop());
 print_r($api->domain()->getPrices());
 
 // ...
+```
