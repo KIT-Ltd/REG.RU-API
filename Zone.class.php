@@ -7,10 +7,12 @@
  * @copyright  Copyright (c) 2015 Kopeisk Information Technologies
  */
 
+namespace RegRu;
+
 /**
  * Класс для управления DNS-зонами
  */
-class Zone
+class Zone extends Api
 {
     /**
      * Тестовый метод, доступен клиентам

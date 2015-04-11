@@ -7,16 +7,20 @@
  * @copyright  Copyright (c) 2015 Kopeisk Information Technologies
  */
 
+namespace RegRu;
+
 /**
  * Класс для работы с доменами
  */
-class Domain
+class Domain extends Api
 {
     /**
      * Тестовый метод, доступен всем
      */
     public function nop()
-    {}
+    {
+        return $this->send(array('testsdsd'));
+    }
     
     /**
      * Метод для получения цен на регистрацию/продление доменов во всех доступных зонах, доступен всем

@@ -7,10 +7,12 @@
  * @copyright  Copyright (c) 2015 Kopeisk Information Technologies
  */
 
+namespace RegRu;
+
 /**
  * Класс для работы с папками
  */
-class Folder
+class Folder extends Api
 {
     /**
      * Тестовый метод, доступен всем

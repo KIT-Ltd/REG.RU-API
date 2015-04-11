@@ -7,10 +7,12 @@
  * @copyright  Copyright (c) 2015 Kopeisk Information Technologies
  */
 
+namespace RegRu;
+
 /**
  * Класс для работы с магазином доменов
  */
-class Shop
+class Shop extends Api
 {
     /**
      * Тестовый метод, доступен клиентам

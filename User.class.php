@@ -7,12 +7,12 @@
  * @copyright  Copyright (c) 2015 Kopeisk Information Technologies
  */
 
-namespace RegRu\Classes\Api;
+namespace RegRu;
 
 /**
  * Класс для работы с учётной записью
  */
-class User
+class User extends Api
 {
     /**
      * Тестовый метод, доступный для всех

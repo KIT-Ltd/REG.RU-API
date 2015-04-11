@@ -7,10 +7,12 @@
  * @copyright  Copyright (c) 2015 Kopeisk Information Technologies
  */
 
+namespace RegRu;
+
 /**
  * Класс для работы cо счетами
  */
-class Bill
+class Bill extends Api
 {
     /**
      * Тестовый метод, доступен клиентам

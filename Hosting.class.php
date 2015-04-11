@@ -7,10 +7,12 @@
  * @copyright  Copyright (c) 2015 Kopeisk Information Technologies
  */
 
+namespace RegRu;
+
 /**
  * Класс для работы с хостингом
  */
-class Hosting
+class Hosting extends Api
 {
     /**
      * Метод для проверки работоспособности API, доступен клиентам
