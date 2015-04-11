@@ -19,14 +19,16 @@ class Domain extends Api
      */
     public function nop()
     {
-        return $this->send(array('testsdsd'));
+        return $this->send();
     }
     
     /**
      * Метод для получения цен на регистрацию/продление доменов во всех доступных зонах, доступен всем
      */
-    public function getPrices()
-    {}
+    public function getPrices($showRenewData = false, $showUpdateData = false, $currency = 'RUR')
+    {
+        return $this->send(get_defined_vars());
+    }
     
     /**
      * Метод для подбора имени домена, доступен партнерам

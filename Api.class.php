@@ -23,16 +23,52 @@ class Api
         $this->url = $url;
     }
     
-    protected function send(array $params)
+    /**
+     * Тестовый метод, доступен всем
+     */
+    public function nop()
     {
+        return $this->send();
+    }
+    
+    /**
+     * Тестовый метод, доступен партнерам
+     */
+    public function resellerNop()
+    {
+        return $this->send();
+    }
+    
+    /**
+     * Возвращает идентификатор авторизованного пользователя, доступен клиентам
+     */
+    public function getUserId()
+    {
+        return $this->send();
+    }
+    
+    /**
+     * Получение id домена или услуги, доступен клиентам
+     */
+    public function getServiceId($serviceId)
+    {
+        return $this->send(get_defined_vars());
+    }
+    
+    protected function send(array $params = array())
+    {
+        foreach ($params as $key => $param) {
+            unset($params[$key]);
+            $params[strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', $key))] = $param;
+        }
         $params = array_merge(array('username' => $this->login, 'password' => $this->password), $params);
         $backtrace = end(debug_backtrace(false));
         $category = lcfirst($backtrace['class']);
         if (false !== $pos = strrpos($category, '\\')) {
             $category = lcfirst(substr($category, $pos + 1));
         }
-        $function = $backtrace['function'];
-        $url = $this->url . $category .'/'. $function .'?'. http_build_query($params, '', '&') . '&input_format=json';
+        $function = strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', $backtrace['function']));
+        $url = $this->url . ('api' !== $category ? $category .'/' : '') . $function .'?'. http_build_query($params, '', '&') . '&input_format=json';
         return json_decode(file_get_contents($url), true);
     }
     
