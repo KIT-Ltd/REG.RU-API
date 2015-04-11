@@ -25,6 +25,8 @@ class Api
     
     /**
      * Тестовый метод, доступен всем
+     * 
+     * @link https://www.reg.ru/support/help/api2#common_nop
      */
     public function nop()
     {
@@ -33,6 +35,8 @@ class Api
     
     /**
      * Тестовый метод, доступен партнерам
+     * 
+     * @link https://www.reg.ru/support/help/api2#common_reseller_nop
      */
     public function resellerNop()
     {
@@ -41,6 +45,8 @@ class Api
     
     /**
      * Возвращает идентификатор авторизованного пользователя, доступен клиентам
+     * 
+     * @link https://www.reg.ru/support/help/api2#common_get_user_id
      */
     public function getUserId()
     {
@@ -49,6 +55,8 @@ class Api
     
     /**
      * Получение id домена или услуги, доступен клиентам
+     * 
+     * @link https://www.reg.ru/support/help/api2#common_get_service_id
      */
     public function getServiceId($serviceId)
     {
@@ -59,7 +67,9 @@ class Api
     {
         foreach ($params as $key => $param) {
             unset($params[$key]);
-            $params[strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', $key))] = $param;
+            if (null !== $param) {
+                $params[strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', $key))] = $param;
+            }
         }
         $params = array_merge(array('username' => $this->login, 'password' => $this->password), $params);
         $backtrace = end(debug_backtrace(false));
