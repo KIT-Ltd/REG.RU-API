@@ -93,6 +93,8 @@ class User extends Api
     
     /**
      * Метод получения URL для редиректа из внешней услуги, доступен партнерам
+     * 
+     * @link https://www.reg.ru/support/help/api2#user_get_reseller_url
      */
     public function getResellerUrl($servtype, $urlType)
     {

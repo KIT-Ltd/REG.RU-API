@@ -11,54 +11,114 @@ namespace RegRu;
 
 /**
  * Класс для работы с доменами
+ * 
+ * @link https://www.reg.ru/support/help/api2#domain_functions
  */
 class Domain extends Api
 {
     /**
      * Тестовый метод, доступен всем
+     * 
+     * @link https://www.reg.ru/support/help/api2#domain_nop
      */
-    public function nop()
+    public function nop($serviceId = null, $userServid = null, $domainName = null)
     {
-        return $this->send();
+        return $this->send(get_defined_vars());
     }
     
     /**
      * Метод для получения цен на регистрацию/продление доменов во всех доступных зонах, доступен всем
+     * 
+     * @link https://www.reg.ru/support/help/api2#domain_get_prices
      */
-    public function getPrices($showRenewData = false, $showUpdateData = false, $currency = 'RUR')
+    public function getPrices($showRenewData = null, $showUpdateData = null, $currency = 'RUR')
     {
         return $this->send(get_defined_vars());
     }
     
     /**
      * Метод для подбора имени домена, доступен партнерам
+     * 
+     * @link https://www.reg.ru/support/help/api2#domain_get_suggest
      */
-    public function getSuggest()
-    {}
+    public function getSuggest($word, $additionalWord = null, $category = null, $tlds = null, $useHyphen = null)
+    {
+        return $this->send(get_defined_vars());
+    }
     
     /**
      * Метод для получения списка премиум-доменов, доступен партнерам
+     * 
+     * @link https://www.reg.ru/support/help/api2#domain_get_premium
      */
-    public function getPremium()
-    {}
+    public function getPremium(
+        $tld = null,
+        $limit = null,
+        $maxChars = null,
+        $cat0 = null,
+        $cat1 = null,
+        $cat2 = null,
+        $random = null
+    ) {
+        return $this->send(get_defined_vars());
+    }
     
     /**
      * Метод для получения списка освобождённых доменов, доступен партнерам
+     * 
+     * @link https://www.reg.ru/support/help/api2#domain_get_deleted
      */
-    public function getDeleted()
-    {}
+    public function getDeleted(
+        $tlds = null,
+        $deletedFrom = null,
+        $deletedTo = null,
+        $createdFrom = null,
+        $createdTo = null,
+        $hidereg = null,
+        $minPr = null,
+        $minCy = null
+    ) {
+        return $this->send(get_defined_vars());
+    }
     
     /**
      * Метод для проверки доступности регистрации домена, доступен партнерам
+     * 
+     * @link https://www.reg.ru/support/help/api2#domain_check
      */
-    public function check()
-    {}
+    public function check($domainName = null, array $domains = array(), $isTransfer = null, $subtype = null)
+    {
+        return $this->send(get_defined_vars());
+    }
     
     /**
      * Метод для подачи заявки на регистрацию домена, доступен клиентам
+     * 
+     * @link https://www.reg.ru/support/help/api2#domain_create
      */
-    public function create()
-    {}
+    public function create(
+        $domainName,
+        $period,
+        $enduserIp,
+        array $contacts,
+        $profileType,
+        $profileName,
+        array $nss,
+        $notDelegated,
+        $userServid = null,
+        $comment = null,
+        $adminComment = null,
+        $pointOfSale = null,
+        $payType = null,
+        $okIfNoMoney = null,
+        $subtype = null,
+        // Описание полей для работы с папками
+        $folderName = null,
+        $folderId = null,
+        $noNewFolder = null
+    ) {
+        return $this->send(get_defined_vars());
+    }
     
     /**
      * Метод для подачи заявки на перенос домена от другого регистратора, доступен клиентам

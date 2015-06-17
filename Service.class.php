@@ -11,32 +11,50 @@ namespace RegRu;
 
 /**
  * Класс для работы с услугами
+ * 
+ * @link https://www.reg.ru/support/help/api2#service_functions
  */
 class Service extends Api
 {
     /**
      * Тестовый метод, доступен клиентам
+     * 
+     * @link https://www.reg.ru/support/help/api2#service_nop
      */
-    public function nop()
-    {}
+    public function nop(array $domains = array(), array $services = array())
+    {
+        return $this->send(get_defined_vars());
+    }
     
     /**
      * Метод для получения цен на активацию/продление услуг, доступен всем
+     * 
+     * @link https://www.reg.ru/support/help/api2#service_get_prices
      */
-    public function getPrices()
-    {}
+    public function getPrices($showRenewData = null, $currency = 'RUR')
+    {
+        return $this->send(get_defined_vars());
+    }
     
     /**
      * Метод для получения цен для услуги, доступен всем
+     * 
+     * @link https://www.reg.ru/support/help/api2#service_get_servtype_details
      */
-    public function getServtypeDetails()
-    {}
+    public function getServtypeDetails($servtype = null, $subtype = null, $unrollPrices = null)
+    {
+        return $this->send(get_defined_vars());
+    }
     
     /**
      * Метод для заказа услуги, доступен всем
+     * 
+     * @link https://www.reg.ru/support/help/api2#service_create
      */
-    public function create()
-    {}
+    public function create($domainName = null, $servtype = null, $period = null, $userServid = null)
+    {
+        return $this->send(get_defined_vars());
+    }
     
     /**
      * Метод для удаления услуги, доступен клиентам
