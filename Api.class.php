@@ -72,7 +72,8 @@ class Api
             }
         }
         $params = array_merge(array('username' => $this->login, 'password' => $this->password), $params);
-        $backtrace = end(debug_backtrace(false));
+        $backtrace = debug_backtrace(false);
+        $backtrace = next($backtrace);
         $category = lcfirst($backtrace['class']);
         if (false !== $pos = strrpos($category, '\\')) {
             $category = lcfirst(substr($category, $pos + 1));
