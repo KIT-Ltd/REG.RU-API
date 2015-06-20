@@ -2,9 +2,8 @@
 /* 
  * Класс для работы с папками
  * 
- * @author     Anton Popov <an.popov@list.ru>
- * @author     Maxim Isaev <sparker.max@gmail.com>
- * @copyright  Copyright (c) 2015 Kopeisk Information Technologies
+ * @author    Anton Popov <an.popov@list.ru>
+ * @copyright Copyright (c) 2015-2016 KIT Ltd.
  */
 
 namespace RegRu;

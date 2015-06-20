@@ -1,4 +1,4 @@
-Copyright (c) 2015 Kopeisk Information Technologies.
+Copyright (c) 2015-2016 KIT Ltd.
 
 Some rights reserved.
 
